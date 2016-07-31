@@ -1,3 +1,6 @@
+Software Manager 
+this application was submitted for the Open SAP challenge in 
+
  #### WELCOME ####
 
 This is your copy of the SAPUI5 Master-Detail Freestyle Application Template.
