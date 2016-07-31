@@ -5,7 +5,9 @@ to run this app in your computer you must disable the same origin policy in your
 *Same Origin Policy must be desactivated in chorme =) --disable-web-security --user-data-dir
 
 https://htmlpreview.github.io
-https://htmlpreview.github.io/?https://github.com/davidvela/softwareMng/blob/master/HelloOpenUI5/WebContent/index.html
+https://htmlpreview.github.io/?https://github.com/davidvela/softwareMng/blob/master/WebContent/test.html
+
+this project has been copied from the WebIDE to Eclipse and then shared in github 
 
 
  #### WELCOME ####
