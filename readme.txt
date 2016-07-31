@@ -6,7 +6,7 @@ to run this app in your computer you must disable the same origin policy in your
 
 https://htmlpreview.github.io
 https://htmlpreview.github.io/?https://github.com/davidvela/softwareMng/blob/master/WebContent/test.html
-
+https://htmlpreview.github.io/?https://github.com/davidvela/softwareMng/blob/master/WebContent/test/flpSandboxMockServer.html
 this project has been copied from the WebIDE to Eclipse and then shared in github 
 
 
