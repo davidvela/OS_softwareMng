@@ -1,5 +1,8 @@
 Software Manager 
-this application was submitted for the Open SAP challenge in 
+OpenSAP course: Build Your Own SAP Fiori App in the Cloud – 2016 Edition
+
+to run this app in your computer you must disable the same origin policy in your browser:
+
 
  #### WELCOME ####
 
