@@ -1,0 +1,49 @@
+[{
+	"SoftwareID": "SO001",
+	"StatID": "StadID 0",
+	"Date": "/Date(1215554400000)/",
+	"Person": "Person 2",
+	"Type": "Success",
+	"time": "April ",
+	"times": "200",
+	"type": "month "
+}, {
+	"SoftwareID": "SO001",
+	"StatID": "StatID 1",
+	"Date": "/Date(1216072800000)/",
+	"Person": "Person 1",
+	"Type": "Success",
+	"__metadata": {
+		"uri": "StatSet(SoftwareID='SoftwareID 1',StatID='StatID 1')",
+		"type": "SoftwareMng.Statistics"
+	},
+	"time": "March",
+	"times": "600",
+	"type": "month "
+}, {
+	"SoftwareID": "SO001",
+	"StatID": "StatID 2",
+	"Date": "/Date(1366236000000)/",
+	"Person": "Person 2",
+	"Type": "Warning",
+	"__metadata": {
+		"uri": "StatSet(SoftwareID='SoftwareID 2',StatID='StatID 2')",
+		"type": "SoftwareMng.Statistics"
+	},
+	"time": "February",
+	"times": "434",
+	"type": "month "
+}, {
+	"SoftwareID": "SO001",
+	"StatID": "StatID 3",
+	"Date": "/Date(1058911200000)/",
+	"Person": "Person 3",
+	"Type": "Warning ",
+	"__metadata": {
+		"uri": "StatSet(SoftwareID='SoftwareID 3',StatID='StatID 3')",
+		"type": "SoftwareMng.Statistics"
+	},
+	"time": "January",
+	"times": "239",
+	"type": "month "
+}]

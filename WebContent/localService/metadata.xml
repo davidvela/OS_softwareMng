@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="SoftwareMng">
+            <!-- ___________________________________________________________________________________________________________________ -->
+            <!-- ____________________________________________ ENTITIES _____________________________________________________________ -->
+            <!-- ___________________________________________________________________________________________________________________ -->
+            <EntityType Name="software">
+                <Key>
+                    <PropertyRef Name="softwareID"/>
+                </Key>
+                <Property Name="softwareID" Nullable="false" Type="Edm.String"/>
+                <Property Name="soType" Type="Edm.String"/>
+                <Property Name="ProgEnvironment" Type="Edm.String"/>
+                <Property Name="SoftwareName" Type="Edm.String"/>
+                <Property Name="SoftwareDesc" Type="Edm.String"/>
+                <Property Name="Department" Type="Edm.String"/>
+                <Property Name="Status" Type="Edm.String"/>
+                <Property Name="FE_Notes" Type="Edm.String"/>
+                <Property Name="BE_Notes" Type="Edm.String"/>
+                <Property Name="QualityPlan" Type="Edm.String"/>
+                <Property Name="Responsable" Type="Edm.String"/>
+                <Property Name="Customer" Type="Edm.String"/>
+                <Property Name="CreationDate" Type="Edm.String"/>
+                <Property Name="CreationName" Type="Edm.String"/>
+                <Property Name="LastChangeDate" Type="Edm.String"/>
+                <Property Name="LastChangeName" Type="Edm.String"/>
+                <Property Name="IconName" Type="Edm.String"/>
+                <Property Name="Documentation" Type="Edm.String"/>
+                <Property Name="SatateColor" Type="Edm.String"/>
+                <Property Name="IncidentSt" Type="Edm.String"/>
+                <Property Name="TestsCounter" Type="Edm.String"/>
+                <Property Name="CRsCounter"  Type="Edm.String"/>
+                <Property Name="CloudCounter" Type="Edm.String"/> 
+                <Property Name="DumpsCounter" Type="Edm.Float"/>
+                <Property Name="TotalCounter" Type="Edm.Float"/> 
+                
+                <NavigationProperty FromRole="From_software" Name="TeamSet"    Relationship="SoftwareMng.softwareTeam"       ToRole="To_Team"/>
+                <NavigationProperty FromRole="From_software" Name="QualitySet" Relationship="SoftwareMng.softwareQuality"    ToRole="To_Quality"/>
+                <NavigationProperty FromRole="From_software" Name="ChangesSet" Relationship="SoftwareMng.softwareChanges"    ToRole="To_Changes"/>
+                <NavigationProperty FromRole="From_software" Name="StatSet"    Relationship="SoftwareMng.softwareStatistics" ToRole="To_Stat"/>
+                <NavigationProperty FromRole="From_software" Name="LinksSet"   Relationship="SoftwareMng.softwareLinks"      ToRole="To_Links"/>
+            </EntityType>
+            <EntityType Name="Team">
+                <Key>
+                    <PropertyRef Name="SoftwareID"/>
+                    <PropertyRef Name="TeamID"/>
+                </Key>
+                <Property Name="TeamID" Nullable="false" Type="Edm.String"/>
+                <Property Name="SoftwareID" Nullable="false" Type="Edm.String"/>
+                <Property Name="TeamMember" Type="Edm.String"/>
+                <Property Name="Role" Type="Edm.String"/>
+                <Property Name="Active" Type="Edm.String"/>
+                <Property Name="Picture" Type="Edm.String"/>
+                <Property Name="StatusColorT" Type="Edm.String"/>
+                <Property Name="Phone" Type="Edm.String"/>
+                <Property Name="Email" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Quality">
+                <Key>
+                    <PropertyRef Name="SoftwareID"/>
+                    <PropertyRef Name="QualityID"/>
+                </Key>
+                <Property Name="SoftwareID"  Nullable="false" Type="Edm.String"/>
+                <Property Name="QualityID"   Nullable="false" Type="Edm.String"/>
+                <Property Name="TestName"    Type="Edm.String"/>
+                <Property Name="TestDescription"    Type="Edm.String"/>
+                <Property Name="TestStatus"  Type="Edm.String"/>
+                <Property Name="TestResult"  Type="Edm.String"/>
+                <Property Name="Date"        Type="Edm.String"/>
+                <Property Name="Responsable" Type="Edm.String"/>
+                <Property Name="StatusColorQ" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Changes">
+                <Key>
+                    <PropertyRef Name="SoftwareID"/>
+                    <PropertyRef Name="ChangesID"/>
+                </Key>
+                <Property Name="SoftwareID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ChangesID" Nullable="false" Type="Edm.String"/>
+                <Property Name="ChNumber" Type="Edm.String"/>
+                <Property Name="ChDesc" Type="Edm.String"/>
+                <Property Name="Date" Type="Edm.String"/>
+                <Property Name="ChLead" Type="Edm.String"/>
+                <Property Name="ChNotes" Type="Edm.String"/>
+                <Property Name="StatusColorC" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Statistics">
+                <Key>
+                    <PropertyRef Name="SoftwareID"/>
+                    <PropertyRef Name="StatID"/>
+                </Key>
+                <Property Name="SoftwareID" Nullable="false" Type="Edm.String"/>
+                <Property Name="StatID"  Nullable="false" Type="Edm.String"/>
+                <Property Name="time"    Type="Edm.String"/>
+                <Property Name="times"  Type="Edm.String"/>
+                <Property Name="type"    Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Links">
+                <Key>
+                    <PropertyRef Name="SoftwareID"/>
+                    <PropertyRef Name="LinksID"/>
+                </Key>
+                <Property Name="SoftwareID" Nullable="false" Type="Edm.String"/>
+                <Property Name="LinksID"  Nullable="false" Type="Edm.String"/>
+                <Property Name="Link"    Type="Edm.String"/>
+                <Property Name="Type"    Type="Edm.String"/>
+                <Property Name="Desc"    Type="Edm.String"/>
+                <Property Name="icon"    Type="Edm.String"/>
+            </EntityType>
+            <!-- ___________________________________________________________________________________________________________________ -->
+            <!-- ____________________________________________ ASSOCIATIONS _________________________________________________________ -->
+            <!-- ___________________________________________________________________________________________________________________ -->
+            <Association Name="softwareTeam">
+                <End Multiplicity="1" Role="From_software" Type="SoftwareMng.software"/>
+                <End Multiplicity="*" Role="To_Team" Type="SoftwareMng.Team"/>
+                <ReferentialConstraint>
+                    <Principal Role="To_Team">
+                        <PropertyRef Name="SoftwareID"/>
+                    </Principal>
+                    <Dependent Role="From_software">
+                        <PropertyRef Name="softwareID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="softwareQuality">
+                <End Multiplicity="1" Role="From_software" Type="SoftwareMng.software"/>
+                <End Multiplicity="*" Role="To_Quality" Type="SoftwareMng.Quality"/>
+                <ReferentialConstraint>
+                    <Principal Role="To_Quality">
+                        <PropertyRef Name="SoftwareID"/>
+                    </Principal>
+                    <Dependent Role="From_software">
+                        <PropertyRef Name="softwareID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="softwareChanges">
+                <End Multiplicity="1" Role="From_software" Type="SoftwareMng.software"/>
+                <End Multiplicity="*" Role="To_Changes" Type="SoftwareMng.Changes"/>
+                <ReferentialConstraint>
+                    <Principal Role="To_Changes">
+                        <PropertyRef Name="SoftwareID"/>
+                    </Principal>
+                    <Dependent Role="From_software">
+                        <PropertyRef Name="softwareID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="softwareStatistics">
+                <End Multiplicity="1" Role="From_software" Type="SoftwareMng.software"/>
+                <End Multiplicity="*" Role="To_Stat" Type="SoftwareMng.Statistics"/>
+                <ReferentialConstraint>
+                    <Principal Role="To_Stat">
+                        <PropertyRef Name="SoftwareID"/>
+                    </Principal>
+                    <Dependent Role="From_software">
+                        <PropertyRef Name="softwareID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="softwareLinks">
+                <End Multiplicity="1" Role="From_software" Type="SoftwareMng.software"/>
+                <End Multiplicity="*" Role="To_Links" Type="SoftwareMng.Links"/>
+                <ReferentialConstraint>
+                    <Principal Role="To_Links">
+                        <PropertyRef Name="SoftwareID"/>
+                    </Principal>
+                    <Dependent Role="From_software">
+                        <PropertyRef Name="softwareID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <!-- ___________________________________________________________________________________________________________________ -->
+            <!-- ____________________________________________ ENTITY CONTAINER _____________________________________________________ -->
+            <!-- ___________________________________________________________________________________________________________________ -->
+            <EntityContainer Name="default" m:IsDefaultEntityContainer="true">
+                <EntitySet EntityType="SoftwareMng.software"     Name="softwareSet"/>
+                <EntitySet EntityType="SoftwareMng.Team"         Name="TeamSet"/>
+                <EntitySet EntityType="SoftwareMng.Quality"      Name="QualitySet"/>
+                <EntitySet EntityType="SoftwareMng.Changes"      Name="ChangesSet"/>
+                <EntitySet EntityType="SoftwareMng.Statistics"   Name="StatSet"/>
+                <EntitySet EntityType="SoftwareMng.Links"        Name="LinksSet"/>
+                <AssociationSet Association="SoftwareMng.softwareTeam" Name="softwareTeamSet">
+                    <End EntitySet="softwareSet" Role="From_software"/>
+                    <End EntitySet="TeamSet" Role="To_Team"/>
+                </AssociationSet>
+                <AssociationSet Association="SoftwareMng.softwareQuality" Name="softwareQualitySet">
+                    <End EntitySet="softwareSet" Role="From_software"/>
+                    <End EntitySet="QualitySet" Role="To_Quality"/>
+                </AssociationSet>
+                <AssociationSet Association="SoftwareMng.softwareChanges" Name="softwareChangesSet">
+                    <End EntitySet="softwareSet" Role="From_software"/>
+                    <End EntitySet="ChangesSet" Role="To_Changes"/>
+                </AssociationSet>
+                <AssociationSet Association="SoftwareMng.softwareStatistics" Name="softwareStatSet">
+                    <End EntitySet="softwareSet" Role="From_software"/>
+                    <End EntitySet="StatSet" Role="To_Stat"/>
+                </AssociationSet>
+                <AssociationSet Association="SoftwareMng.softwareLinks" Name="softwareLinksSet">
+                    <End EntitySet="softwareSet" Role="From_software"/>
+                    <End EntitySet="LinksSet"    Role="To_Links"/>
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

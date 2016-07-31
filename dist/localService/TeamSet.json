@@ -1,0 +1,86 @@
+[{
+	"TeamID": "1",
+	"TeamMember": "John Vela ",
+	"Role": "Project Leader",
+	"Active": "Yes",
+	"softwareID": "1",
+	"SoftwareID": "SO001",
+	"StatusColorT": "Success",
+	"Picture": "https://octodex.github.com/images/daftpunktocat-guy.gif",
+	"Phone": "+49 1789028272",
+	"Email": "j.vela@comp.com"
+}, {
+	"softwareID": "1",
+	"TeamID": "2",
+	"TeamMember": "Jose Lopez",
+	"Role": "Junior Dev. ",
+	"Active": "Yes",
+	"SoftwareID": "SO001",
+	"StatusColorT": "Success",
+	"Picture": "sap-icon://picture",
+	"Phone": "+49 1722834127",
+	"Email": "j.lopez@comp.com"
+}, {
+	"softwareID": "1",
+	"TeamID": "3",
+	"TeamMember": "Genaro Garcia",
+	"Role": "Senior Dev ",
+	"Active": "Yes",
+	"SoftwareID": "SO001",
+	"StatusColorT": "Success",
+	"Picture": "https://octodex.github.com/images/dojocat.jpg",
+	"Phone": "+49 1789644540",
+	"Email": "g.garcia@comp.com"
+}, {
+	"softwareID": "2",
+	"TeamID": "4",
+	"TeamMember": "John Vela ",
+	"Active": "Yes",
+	"Role": "Project Leader",
+	"SoftwareID": "SO002",
+	"StatusColorT": "Success",
+	"Picture": "https://octodex.github.com/images/daftpunktocat-guy.gif",
+	"Phone": "+49 17845547291",
+	"Email": "j.vela@comp.com"
+}, {
+	"softwareID": "2",
+	"TeamID": "5",
+	"TeamMember": "David Rajendram",
+	"Active": "No -  Since 01.02.2015. ",
+	"Role": "Junior Dev. ",
+	"SoftwareID": "SO002",
+	"StatusColorT": "Error ",
+	"Picture": "https://octodex.github.com/images/octobiwan.jpg",
+	"Phone": "+49 17890282721",
+	"Email": "d.rajendram@comp.com"
+}, {
+	"SoftwareID": "SO002",
+	"TeamID": "6",
+	"TeamMember": "Carmen Sanchez",
+	"Role": "Senior Dev.",
+	"Active": "Yes",
+	"StatusColorT": "Success",
+	"Picture": "https://pbs.twimg.com/profile_images/519367942866104320/PB96rDH_.png",
+	"Phone": "+49 17892123120",
+	"Email": "c.sanchez@como.com"
+}, {
+	"SoftwareID": "SO003",
+	"TeamID": "7",
+	"TeamMember": "John Vela ",
+	"Role": "Project Leader",
+	"Active": "Yes",
+	"StatusColorT": "Success",
+	"Picture": "https://octodex.github.com/images/daftpunktocat-guy.gif",
+	"Phone": "+49 17890282712",
+	"Email": "j.vela@comp.com"
+}, {
+	"SoftwareID": "SO004",
+	"TeamID": "8",
+	"TeamMember": "David Rajendram",
+	"Role": "Junior Dev. ",
+	"Active": "Yes",
+	"StatusColorT": "Success",
+	"Picture": "https://octodex.github.com/images/octobiwan.jpg",
+	"Phone": "+49 17831231294",
+	"Email": "d.rajendram@comp.com"
+}]

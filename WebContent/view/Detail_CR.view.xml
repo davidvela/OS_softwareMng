@@ -1,0 +1,19 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="so.mng.controller.Detail_CR"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Change Request Detail" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<ObjectHeader id="objectHeader" title="{SoftwareDesc}" backgroundDesign="Solid" iconActive="true" icon="{IconName}">
+						<attributes>
+							<ObjectAttribute text="{ProgEnvironment}" active="false" id="__attribute0" title="Prog. Env"/>
+						</attributes>
+						<statuses>
+							<ObjectStatus text="{Department}" id="__status0" title="Dpto"/>
+						</statuses>
+					</ObjectHeader>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

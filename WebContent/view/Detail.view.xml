@@ -1,0 +1,260 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:microchart="sap.suite.ui.microchart"
+	controllerName="so.mng.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{SoftwareName}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{SoftwareDesc}" backgroundDesign="Solid" iconActive="true" icon="{IconName}">
+				<attributes>
+					<ObjectAttribute text="{ProgEnvironment}" active="false" id="__attribute0" title="Prog. Env"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="{Department}" id="__status0" title="Dpto"/>
+				</statuses>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" select="onStat">
+				<items>
+					<!-- ___________________________________________   INFO BUTTON _____________________________ -->
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="Info">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="false"
+								layout="ResponsiveGridLayout" id="__form0">
+								<sap.ui.layout.form:content xmlns:sap.ui.layout.form="sap.ui.layout.form">
+									<sap.ui.core:Title xmlns:sap.ui.core="sap.ui.core" text="General Information" id="__title0"/>
+									<Label text="Documentation" id="__label8"/>
+									<Text text="{Documentation}" maxLines="0" id="__text32" width="100%"/>
+									<Label text="GUI Notes" id="__label2"/>
+									<Input width="100%" id="__inputi1" editable="false" value="{FE_Notes}"/>
+									<Label text="Back End Notes" id="__label4"/>
+									<Input width="100%" id="__inputi2" editable="false" value="{BE_Notes}"/>
+									<Label text="Quality Plann" id="__label7"/>
+									<Input width="100%" id="__inputi7" editable="false" value="{QualityPlan}"/>
+									<Label text="Created" id="__label5i"/>
+									<Input width="100%" id="__inputi3" editable="false" value="{CreationName}"/>
+									<Input width="100%" id="__inputi4" editable="false" value="{CreationDate}"/>
+									<Label text="Last Modification" id="__label6i"/>
+									<Input width="100%" id="__inputi5" editable="false" value="{LastChangeName}"/>
+									<Input width="100%" id="__inputi6" editable="false" value="{LastChangeDate}"/>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+							<List noDataText="No Team Members for this Software" id="__list0" headerText="Team Members " items="{TeamSet}">
+								<items>
+									<StandardListItem type="Navigation" counter="0" title="{TeamMember}" description="{Role} - Active: {Active}" icon="{Picture}" id="__item3"
+										press="showTeamDialog"/>
+								</items>
+							</List>
+						</content>
+					</IconTabFilter>
+					<!-- ___________________________________________   QUALITY BUTTON _____________________________ -->
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://decision" tooltip="Quality Plan" text="Tests" count = "{TestsCounter}" >
+						<content>
+							<Table id="lineItemsList" width="auto" items="{QualitySet}" noDataText="No Tests done so far"
+								busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" mode="SingleSelectMaster">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbarQuality">
+										<content>
+											<Title id="lineItemsQuality" text="Quality Tests"/>
+											<ToolbarSpacer id="__spacerq1"/>
+											<Button text="New Test" icon="sap-icon://add" press="onNewTest"/>
+											<Button text="More" icon="sap-icon://settings" press="onMoreTest"/>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet">
+										<Text text="Status"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Test Name"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Description Name"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Result"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Responsable"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Date"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<!-- <cells>	<ObjectIdentifier title="{TestStatus}"  />				</cells> -->
+										<!--<cells>	<TextArea value="{TestStatus}" valueState="{ path: 'StatusColorQ' ,    formatter: 'so.mng .model.formatter.statusState'}" editable="false"/> </cells> -->
+										<cells>
+											<ObjectStatus text="{TestStatus}" id="__status3q" state="{ path: 'StatusColorQ' , formatter: 'formatter.statusState'}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{TestName}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{TestDescription}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{TestResult}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{Responsable}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{Date}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<!-- ___________________________________________   CHANGE REQUESTS _____________________________  -->
+					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://flag" tooltip="{i18n>detailIconTabBarAttachments}" text="CRs" count = "{CRsCounter}" >
+						<content>
+							<Table id="lineItemCR" width="auto" items="{ChangesSet}" noDataText="No Change Requests."
+								busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" mode="SingleSelectMaster" itemPress="onCRClick"
+								includeItemInSelection="false">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbarCR">
+										<content>
+											<Title id="lineItemsCR" text="Change Request"/>
+											<ToolbarSpacer id="__spacerc1"/>
+											<Button text="Re-open" icon="sap-icon://add" press="oReopen"/>
+											<Button text="Edit" icon="sap-icon://edit" press="onCROption"/>
+											<Button text="More" icon="sap-icon://settings" press="onMoreCR"/>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet">
+										<Text text="Change Request"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Description"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Leader"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Notes"/>
+									</Column>
+									<Column minScreenWidth="Tablet">
+										<Text text="Cr. Date"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<!-- <cells>	<ObjectIdentifier title="{ChNumber}"  />				</cells> -->
+										<!--<cells>	<TextArea value="{ChNumber}" valueState="{ path: 'StatusColorC' ,    formatter: 'formatter.statusState'}" editable="false"/> </cells>-->
+										<cells><ObjectStatus text="{ChNumber}" id="__status3c" state="{ path: 'StatusColorC' , formatter: 'formatter.statusState'}"/></cells>
+										<cells>
+											<ObjectIdentifier title="{ChDesc}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{ChLead}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{ChNotes}"/>
+										</cells>
+										<cells>
+											<ObjectIdentifier title="{Date}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<!-- ___________________________________________   CLOUD   _____________________________  -->
+					<IconTabFilter id="iconTabBarFilter4" icon="sap-icon://tag-cloud-chart" tooltip="User comments" text="Cloud" count = "{CloudCounter}" >
+						<content>
+							<!--<Button text="See details" width="100px" id="__button2" press="onSplash"/>
+							<FlexBox width="100%" id="boxWeb" height="95%"/>
+						   <html:button>No, press me. I am native HTML Button.</html:button> 
+						    <html:div id="boxWeb3" width="100%" height="95%"></html:div>-->
+							<!--<html:iframe width="560" height="315" src="https://www.youtube.com/embed/ZuJWQzjfU3o?list=RD70VWkJJLIxc" frameborder="0">
+							</html:iframe> -->
+							<!--<html:iframe id="boxWeb2" width="100%" height="600"></html:iframe> -->
+							<List noDataText="No Links available" id="__list44" headerText="Links " items="{LinksSet}">
+								<items>
+									<StandardListItem type="Navigation" counter="0" title="{Desc}" description="{Link}" icon="{icon}" id="__item44" press="onShowLink"/>
+								</items>
+							</List>
+						</content>
+					</IconTabFilter>
+					<!-- ___________________________________________   STATISTICS  _____________________________  { path: 'TotalCounter' , formatter: 'formatter.floatValue'}-->
+					<IconTabFilter id="iconTabBarFilter5" icon="sap-icon://along-stacked-chart" tooltip="Statistics" text="Statistics">
+						<content>
+							<VBox width="100%" direction="Column" id="__vbox2" justifyContent="Center" alignItems="Center">
+								<items>
+									<TileContent footer="Total Access Last Month" size="M">
+										<content>
+											<microchart:HarveyBallMicroChart id = "ballTotal" size="M" total="100" totalScale="Mrd" showTotal="true" showFractions="true" press="HB_Press">
+												<microchart:items>
+													<microchart:HarveyBallMicroChartItem id = "ballFraction" fraction="15" color="Error" fractionScale="Mrd"/>
+												</microchart:items>
+											</microchart:HarveyBallMicroChart>
+										</content>
+									</TileContent>
+								</items>
+							</VBox>
+							<List noDataText="No Statistic available" id="__list3" headerText="Statistics ">
+								<items>
+									<StandardListItem type="Navigation" counter="0" title="User Access" id="__item6" press="onStatClick"/>
+									<StandardListItem counter="0" title="Analyse Dumps" id="__item9" press="onStatClick"/>
+									<StandardListItem counter="0" title="My SQL Traces" id="__item7" press="onStatClick"/>
+									<StandardListItem counter="0" title="Performance (Year dependent)" id="__item8" press="onStatClick"/>
+								</items>
+							</List>
+							<!--<Label text="Execution Outcome" width="100%" id="__label1" design="Bold"/>
+							<layout:FixFlex minFlexSize="250">
+								<layout:flexContent>
+									<viz:Popover id="idPopOver"/>
+									<viz:VizFrame id="idVizFrame" height="100%" width="100%" vizType="stacked_bar">
+										<viz:dataset>
+											<viz.data:FlattenedDataset data="{StatSet}" id = "dataSetGraphic">
+												<viz.data:dimensions>
+													<viz.data:DimensionDefinition name="type" value="{type}"/>
+													<viz.data:DimensionDefinition name="Period(t)" value="{time}"/>
+												</viz.data:dimensions>
+												<viz.data:measures>
+													<viz.data:MeasureDefinition name="Access" value="{times}"/>
+												</viz.data:measures>
+											</viz.data:FlattenedDataset>
+										</viz:dataset>
+										<viz:feeds>
+											<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Access"/>
+											<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Period(t)"/>
+											<viz.feeds:FeedItem uid="color" type="Dimension" values="type"/>
+										</viz:feeds>
+									</viz:VizFrame>
+								</layout:flexContent>
+							</layout:FixFlex> -->
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<!-- after tabs -->
+			<VBox width="100%" direction="Column" id="__vbox0" alignItems="Center">
+				<items>
+					<!-- <Image width="50%" height="50%" id="__image0" 
+			    			src="http://www.excogitoweb.it/wp-content/uploads/services-web-development-services-on-light.png"/> -->
+				</items>
+			</VBox>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+		<semantic:printAction>
+			<semantic:PrintAction tooltip="Print" id="__action0"/>
+		</semantic:printAction>
+		<semantic:favoriteAction>
+			<semantic:FavoriteAction tooltip="Favorite" id="__action1"/>
+		</semantic:favoriteAction>
+	</semantic:DetailPage>
+</mvc:View>

@@ -1,0 +1,57 @@
+[{
+	"SoftwareID": "SO001",
+	"LinksID": "1",
+	"Type": "video",
+	"Desc": "Tips and tricks for Change History",
+	"Link": "https://www.youtube.com/watch?v=ZhtSAqMfDKA",
+	"icon": "sap-icon://video"
+}, {
+	"SoftwareID": "SO004",
+	"LinksID": "2",
+	"Desc": "Splash Study",
+	"Link": "https://standard.experiencesplash.com/home/projects/e2852984fe0236a 30baa0365/research/participant/adc4be3c1b75b16f0baa1af8",
+	"Type": "web",
+	"icon": "sap-icon://internet-browser"
+}, {
+	"SoftwareID": "SO004",
+	"LinksID": "3",
+	"Desc": "Splash Mock up ",
+	"Link": "https://standard.experiencesplash.com:443/api/projects/e2852984fe0236 a30baa0365/prototype/snapshot/latest/index.html#/1457991778145_S0",
+	"Type": "web",
+	"icon": "sap-icon://internet-browser"
+}, {
+	"SoftwareID": "SO004",
+	"LinksID": "4",
+	"Link": "https://player.vimeo.com/external/149623929.hd.mp4?s=b20a9d888a83e197d22afd513a414cb78dd3086e&profile_id=113&oauth2_token_id=60920085",
+	"Type": "video",
+	"Desc": "Build Your Own SAP Fiori App in the Cloud - Intro ",
+	"icon": "sap-icon://video"
+}, {
+	"SoftwareID": "SO004",
+	"LinksID": "5",
+	"Type": "video",
+	"Desc": "***Intro video for the app***",
+	"icon": "sap-icon://video",
+	"Link": "https://www.youtube.com/watch?v=ZG9qt4-TZQM"
+}, {
+	"SoftwareID": "SO004",
+	"LinksID": "6",
+	"Type": "picture",
+	"icon": "sap-icon://picture",
+	"Desc": "App picture",
+	"Link": "http://www.vanillasoft.com/sites/default/files/lead-management-software-queue.gif"
+}, {
+	"SoftwareID": "SO002",
+	"LinksID": "7",
+	"icon": "sap-icon://picture",
+	"Desc": "Mock up pic ",
+	"Type": "picture",
+	"Link": "https://docs.moodle.org/dev/images_dev/0/06/Moodle_flavours_package_flavour_mockup.png"
+}, {
+	"SoftwareID": "SO003",
+	"LinksID": "8",
+	"Type": "video",
+	"icon": "sap-icon://video",
+	"Desc": "Intro to UI5",
+	"Link": "https://www.youtube.com/watch?v=ray2yZ9BJ-c"
+}]

@@ -1,0 +1,85 @@
+[{
+	"SoftwareID": "SO001",
+	"StatID": "StadID 0",
+	"Date": "/Date(1215554400000)/",
+	"Person": "Person 2",
+	"Type": "Success",
+	"time": "April 16",
+	"times": "200",
+	"type": "Access "
+}, {
+	"SoftwareID": "SO001",
+	"StatID": "StatID 1",
+	"Date": "/Date(1216072800000)/",
+	"Person": "Person 1",
+	"Type": "Success",
+	"__metadata": {
+		"uri": "StatSet(SoftwareID='SoftwareID 1',StatID='StatID 1')",
+		"type": "SoftwareMng.Statistics"
+	},
+	"time": "April 16",
+	"times": "5",
+	"type": "Dumps"
+}, {
+	"SoftwareID": "SO001",
+	"StatID": "StatID 2",
+	"Date": "/Date(1366236000000)/",
+	"Person": "Person 2",
+	"Type": "Warning",
+	"__metadata": {
+		"uri": "StatSet(SoftwareID='SoftwareID 2',StatID='StatID 2')",
+		"type": "SoftwareMng.Statistics"
+	},
+	"time": "May 16",
+	"times": "20",
+	"type": "Access "
+}, {
+	"SoftwareID": "SO001",
+	"StatID": "StatID 3",
+	"Date": "/Date(1058911200000)/",
+	"Person": "Person 3",
+	"Type": "Warning ",
+	"__metadata": {
+		"uri": "StatSet(SoftwareID='SoftwareID 3',StatID='StatID 3')",
+		"type": "SoftwareMng.Statistics"
+	},
+	"time": "May 16",
+	"times": "0",
+	"type": "Dumps"
+}, {
+	"SoftwareID": "SO002",
+	"StatID": "StatID 1",
+	"time": "April 16",
+	"type": "Access ",
+	"times": "5"
+}, {
+	"SoftwareID": "SO002",
+	"StatID": "StatID 2",
+	"time": "April 16",
+	"type": "Dumps",
+	"times": "1"
+}, {
+	"SoftwareID": "SO003",
+	"StatID": "StatID 1",
+	"time": "April 16",
+	"type": "Access ",
+	"times": "10"
+}, {
+	"SoftwareID": "SO003",
+	"StatID": "StatID 2",
+	"time": "April 16",
+	"type": "Dumps",
+	"times": "4"
+}, {
+	"SoftwareID": "SO004",
+	"StatID": "StatID 1",
+	"time": "April 16",
+	"type": "Access ",
+	"times": "20"
+}, {
+	"SoftwareID": "SO004",
+	"StatID": "StatID 2",
+	"time": "April 16",
+	"type": "Dumps",
+	"times": "1"
+}]

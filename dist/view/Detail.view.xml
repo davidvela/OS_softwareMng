@@ -1,0 +1,212 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="so.mng .controller.Detail"> 
+
+
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{SoftwareName}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{SoftwareDesc}" backgroundDesign="Solid" iconActive="true" icon="{IconName}">
+			    <attributes>
+			        <ObjectAttribute text="{ProgEnvironment}" active="false" id="__attribute0" title="Prog. Env"/>
+			    </attributes>
+			<statuses>
+			    <ObjectStatus text="{Department}" id="__status0" title="Dpto"/>
+			</statuses>
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<!-- ___________________________________________   INFO BUTTON _____________________________ -->
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" text="Info">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="false" layout="ResponsiveGridLayout" id="__form0">
+							    <sap.ui.layout.form:content xmlns:sap.ui.layout.form="sap.ui.layout.form">
+							        <sap.ui.core:Title xmlns:sap.ui.core="sap.ui.core" text="General Information" id="__title0"/>
+					                <Label text="Documentation" id="__label8"/>
+					                <Text text="{Documentation}" maxLines="0" id="__text32" width="100%"/>
+	
+							        <Label text="GUI Notes" id="__label2"/>
+							        <Input width="100%" id="__inputi1" editable="false" value="{FE_Notes}"/>
+
+							        <Label text="Back End Notes" id="__label4"/>
+							        <Input width="100%" id="__inputi2" editable="false" value="{BE_Notes}"/>
+							        	
+							       <Label text="Quality Plann" id="__label7"/>
+							        <Input width="100%" id="__inputi7" editable="false" value="{QualityPlan}"/>
+
+							        <Label text="Created" id="__label5i"/>
+							        <Input width="100%" id="__inputi3" editable="false" value="{CreationName}"/>
+							        <Input width="100%" id="__inputi4" editable="false" value="{CreationDate}"/>	
+							    	
+							    	<Label text="Last Modification" id="__label6i"/>
+							        <Input width="100%" id="__inputi5" editable="false" value="{LastChangeName}"/>
+							        <Input width="100%" id="__inputi6" editable="false" value="{LastChangeDate}"/>
+							        	
+							        </sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+							<List noDataText="No Team Members for this Software" id="__list0" headerText="Team Members " items="{TeamSet}" itemPress="">
+							    <items>   <StandardListItem type="Navigation" counter="0" title="{TeamMember}" description="{Role} - Active: {Active}" icon="{Picture}" id="__item3" detailPress="" press="showTeamDialog"/>   </items>
+							</List>
+							<!-- Table --> 
+							<!--<Table id="lineItemsList" width="auto" items="{TeamSet}" updateFinished="" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" itemPress="showTeamDialog">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbar">
+										<content>
+											<Title id="lineItemsHeader" text="Team Members"/>
+											<ToolbarSpacer id="__spacer1"/>
+											<Button text="Add" icon="sap-icon://add"> </Button>
+											<Button text="Edit" icon="sap-icon://edit"> </Button>
+										</content>
+									<layoutData>
+									    <FlexItemData id="__data12"/>
+									</layoutData>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column>
+										<Text text="{i18n>detailLineItemTableIDColumn}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+										<Text text="Role/Position"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+										<Text text="Active"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="{TeamMember}"/>
+										</cells>
+										<cells>	<ObjectIdentifier title="{Role}"/>		</cells>
+										<cells>	<ObjectIdentifier title="{Active}"/> 	</cells>
+									</ColumnListItem>
+								</items>
+							</Table> -->
+						</content>
+					</IconTabFilter>
+					<!-- ___________________________________________   QUALITY BUTTON _____________________________ -->
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://decision" tooltip="Quality Plan" text="Tests">
+						<content>
+							<Table id="lineItemsList" width="auto" items="{QualitySet}" updateFinished="" noDataText="No Tests done so far" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" mode="SingleSelectMaster">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbarQuality">
+										<content>
+											<Title id="lineItemsQuality" text="Quality Tests"/>
+											<ToolbarSpacer id="__spacerq1"/>
+											<Button text="New Test" icon="sap-icon://add" press="onNewTest"> </Button>
+											<Button text="More" icon="sap-icon://settings" press="onMoreTest"> </Button>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet"> <Text text="Status"/>	</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Test Name"/>	</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">	<Text text="Description Name"/>		</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Result"/>	</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Responsable"/>	</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Date"/>	</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<!-- <cells>	<ObjectIdentifier title="{TestStatus}"  />				</cells> -->
+										<!--<cells>	<TextArea value="{TestStatus}" valueState="{ path: 'StatusColorQ' ,    formatter: 'so.mng .model.formatter.statusState'}" editable="false"/> </cells> -->
+										<cells>	  <ObjectStatus text="{TestStatus}" id="__status3q" state="{ path: 'StatusColorQ' ,    formatter: 'formatter.statusState'}"/>		</cells> 
+										<cells>	<ObjectIdentifier title="{TestName}"/>					</cells>
+										<cells>	<ObjectIdentifier title="{TestDescription}"/>			</cells>
+										<cells>	<ObjectIdentifier title="{TestResult}"/>				</cells>
+										<cells>	<ObjectIdentifier title="{Responsable}"/>				</cells>
+										<cells>	<ObjectIdentifier title="{Date}"/>						</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<!-- ___________________________________________   CHANGE REQUESTS _____________________________  -->
+					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://flag" tooltip="{i18n>detailIconTabBarAttachments}" text="CRs"> 
+						<content>
+								<Table id="lineItemCR" width="auto" items="{ChangesSet}" updateFinished="" noDataText="No Change Requests." busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" mode="SingleSelectMaster">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbarCR">
+										<content>
+											<Title id="lineItemsCR" text="Change Request"/>
+											<ToolbarSpacer id="__spacerc1"/>
+											<Button text="Re-open" icon="sap-icon://add" press="oReopen"> </Button>
+											<Button text="Edit" icon="sap-icon://edit" press="onClose"> </Button>
+											<Button text="More" icon="sap-icon://settings" press="onMoreCR"> </Button>
+										</content>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet"> <Text text="Change Request"/>	</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">	<Text text="Description"/>		</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Leader"/>	</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Notes"/>	</Column>
+									<Column minScreenWidth="Tablet"> <Text text="Cr. Date"/>	</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<!-- <cells>	<ObjectIdentifier title="{ChNumber}"  />				</cells> -->
+										<!--<cells>	<TextArea value="{ChNumber}" valueState="{ path: 'StatusColorC' ,    formatter: 'formatter.statusState'}" editable="false"/> </cells>--> 
+										<cells><ObjectStatus text="{ChNumber}" id="__status3c" state="{ path: 'StatusColorC' ,    formatter: 'formatter.statusState'}"/></cells>
+										<cells>	<ObjectIdentifier title="{ChDesc}"/>			</cells>
+										<cells>	<ObjectIdentifier title="{ChLead}"/>			</cells>
+										<cells>	<ObjectIdentifier title="{ChNotes}"/>			</cells>
+										<cells>	<ObjectIdentifier title="{Date}"/>				</cells>	
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>                
+
+					<!-- ___________________________________________   CLOUD   _____________________________  -->
+					<IconTabFilter id="iconTabBarFilter4" icon="sap-icon://tag-cloud-chart" tooltip="User comments" text="Cloud"> 
+						<content>
+							 <!--<Button text="See details" width="100px" id="__button2" press="onSplash"/>
+							<FlexBox width="100%" id="boxWeb" height="95%"/>
+						   <html:button>No, press me. I am native HTML Button.</html:button> 
+						    <html:div id="boxWeb3" width="100%" height="95%"></html:div>-->
+							<!--<html:iframe width="560" height="315" src="https://www.youtube.com/embed/ZuJWQzjfU3o?list=RD70VWkJJLIxc" frameborder="0">
+							</html:iframe> -->
+						    <!--<html:iframe id="boxWeb2" width="100%" height="600"></html:iframe> -->
+						    <List noDataText="No Links available" id="__list44" headerText="Links " items="{LinksSet}">
+							    <items>   <StandardListItem type="Navigation" counter="0" title="{Desc}" description="{Link}" icon="{icon}" id="__item44" press="onShowLink"/>   </items>
+							</List> 
+						    
+						  </content>
+					</IconTabFilter>
+					<!-- ___________________________________________   STATISTICS  _____________________________  -->
+					<IconTabFilter id="iconTabBarFilter5" icon="sap-icon://along-stacked-chart" tooltip="Statistics" text="Statistics"> 
+						<content>
+						    <ObjectStatus text="Tab in development. It will display the User Access to the different softwares." id="__status33c" state="Warning"/>
+						    <ObjectStatus text="Below it is just an exmaple of a makit chart." id="__status34c" state="Warning"/>
+							<Label width="100%" id="__label3"/>
+							<Label text="User Access" width="100%" id="__label0" design="Bold"/>
+							<Label width="100%" id="__label5"/>
+							<Image width="100%" height="250px" id="__image0" src="../model/pic/graph.GIF"/> 
+					          <!--<viz:VizFrame id="idVizFrameColumn" height="100%" width="100%"/> -->
+					          <!-- uiConfig="fiori" xmlns:viz="sap.viz.ui5.controls" -->
+							<Label text="Execution Outcome" width="100%" id="__label1" design="Bold"/>
+						</content>
+					</IconTabFilter> 
+				</items>
+			</IconTabBar>
+			
+			
+			<!-- after tabs -->
+			<VBox width="100%" direction="Column" id="__vbox0" alignItems="Center">
+			    <items>
+			       <!-- <Image width="50%" height="50%" id="__image0" 
+			    			src="http://www.excogitoweb.it/wp-content/uploads/services-web-development-services-on-light.png"/> -->
+			    </items>
+			</VBox>
+		</semantic:content>
+		
+		<semantic:sendEmailAction>		<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>		<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>		<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>		</semantic:saveAsTileAction>
+	<semantic:printAction>
+	    <semantic:PrintAction tooltip="Print" id="__action0"/>
+	</semantic:printAction>
+	<semantic:favoriteAction>
+	    <semantic:FavoriteAction tooltip="Favorite" id="__action1"/>
+	</semantic:favoriteAction>
+	</semantic:DetailPage>
+</mvc:View>
