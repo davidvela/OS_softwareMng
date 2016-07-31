@@ -1,10 +1,13 @@
-Software Manager 
+# Software Manager 
 OpenSAP course: Build Your Own SAP Fiori App in the Cloud – 2016 Edition
 
 to run this app in your computer you must disable the same origin policy in your browser:
 *Same Origin Policy must be desactivated in chorme =) --disable-web-security --user-data-dir
+OR run it in an SAP Server. 
 
+************************************************************************************************
 video : https://www.youtube.com/watch?v=ZG9qt4-TZQM
+************************************************************************************************
 
 https://htmlpreview.github.io
 https://htmlpreview.github.io/?https://github.com/davidvela/softwareMng/blob/master/WebContent/test.html
