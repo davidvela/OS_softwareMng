@@ -2,7 +2,7 @@
 OpenSAP course: Build Your Own SAP Fiori App in the Cloud – 2016 Edition
 
 
-![pcit](https://github.com/davidvela/softwareMng/blob/master/softwareMngPic.JPG)
+![softwareMngPic](https://github.com/davidvela/softwareMng/blob/master/softwareMngPic.JPG)
 
 to run this app in your computer you must disable the same origin policy in your browser:
 *Same Origin Policy must be desactivated in chorme =) --disable-web-security --user-data-dir
